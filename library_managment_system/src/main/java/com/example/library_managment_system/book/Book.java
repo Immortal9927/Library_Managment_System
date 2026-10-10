@@ -68,4 +68,32 @@ public class Book {
     public int getAvailableCopies() {
         return availableCopies;
     }
+
+    public void updateDetails (String title, String author, String isbn
+    , LocalDate publicationDate, int totalCopies) {
+        int borrowedCopies = this.totalCopies - this.availableCopies;
+        if (totalCopies < borrowedCopies) {
+            throw new IllegalArgumentException("Total copies cannot be less than the number of" +
+                    "currently available copies");
+        }
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.publicationDate = publicationDate;
+        this.availableCopies = totalCopies - borrowedCopies;
+    }
+
+    public void borrowCopy() {
+        if (availableCopies <= 0) {
+            throw new IllegalStateException("No copy of this book is currently available");
+        }
+        this.availableCopies--;
+    }
+
+    public void returnCopy() {
+        if (availableCopies >= totalCopies) {
+            throw new IllegalStateException("All copies are in library already");
+        }
+        this.availableCopies++;
+    }
 }
