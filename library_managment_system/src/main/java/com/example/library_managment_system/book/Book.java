@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false, length = 200)
     private String title;
@@ -41,7 +41,7 @@ public class Book {
         this.availableCopies = availableCopies;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
