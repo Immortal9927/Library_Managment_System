@@ -28,7 +28,7 @@ public class Book {
     private int availableCopies;
 
     /* JPA requires entity to have no argument constructor
-    to create object when loading data from db
+    to create object when loading data from db1
     */
     protected Book() {}
 
@@ -41,5 +41,31 @@ public class Book {
         this.availableCopies = availableCopies;
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public LocalDate getPublicationDate() {
+        return publicationDate;
+    }
+
+    public int getTotalCopies() {
+        return totalCopies;
+    }
+
+    public int getAvailableCopies() {
+        return availableCopies;
+    }
 }
